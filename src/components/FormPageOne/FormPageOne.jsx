@@ -2,8 +2,6 @@ import { useHistory } from 'react-router-dom';
 import NumericInput from 'react-numeric-input';
 
 function FormPageOne() {
-  const history = useHistory();
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     console.log('handleSubmit()');
@@ -11,7 +9,6 @@ function FormPageOne() {
 
   const goToNext = () => {
     console.log('goToNext()');
-    history.push('/home');
   };
 
   return (
