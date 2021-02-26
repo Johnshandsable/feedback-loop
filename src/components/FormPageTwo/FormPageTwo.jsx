@@ -1,4 +1,14 @@
+import NumericInput from 'react-numeric-input';
+
 function FormPageTwo() {
+  const handleSubmit = () => {
+    console.log('handleSubmit()');
+  };
+  /*
+  <button onClick={goBack}>Back</button>
+      <button onClick={goToNext}>Next</button>
+  */
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -6,8 +16,6 @@ function FormPageTwo() {
         <NumericInput min={0} max={5} />
         <button>Submit</button>
       </form>
-      <button onClick={goBack}>Back</button>
-      <button onClick={goToNext}>Next</button>
     </div>
   );
 }

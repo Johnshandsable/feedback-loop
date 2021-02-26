@@ -7,11 +7,18 @@ import registerServiceWorker from './registerServiceWorker';
 // Redux
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { logger } from 'redux-logger';
 
-const storeInstance = createStore(combineReducers({}), applyMiddleware(logger));
+const infoReducer = (state = {}, action) => {
+  return state;
+};
+
+const storeInstance = createStore(
+  combineReducers({ infoReducer }),
+  applyMiddleware(logger)
+);
 
 ReactDOM.render(
-  <App />,
   <Provider store={storeInstance}>
     <App />
   </Provider>,
