@@ -1,14 +1,20 @@
 import NumericInput from 'react-numeric-input';
+import { useHistory } from 'react-router-dom';
 
 function FormPageThree() {
+  const history = useHistory();
+
   const handleSubmit = () => {
     console.log('handleSubmit()');
   };
 
-  /*
-    <button onClick={goBack}>Back</button>
-      <button onClick={goToNext}>Next</button>
-  */
+  const goToNext = () => {
+    history.push('form4');
+  };
+
+  const goBack = () => {
+    history.push('/form2');
+  };
 
   return (
     <div>
@@ -17,6 +23,8 @@ function FormPageThree() {
         <NumericInput min={0} max={5} />
         <button>Submit</button>
       </form>
+      <button onClick={goBack}>Back</button>
+      <button onClick={goToNext}>Next</button>
     </div>
   );
 }
