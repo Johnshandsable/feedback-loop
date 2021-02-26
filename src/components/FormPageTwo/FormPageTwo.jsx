@@ -1,13 +1,20 @@
 import NumericInput from 'react-numeric-input';
+import { useHistory } from 'react-router-dom';
 
 function FormPageTwo() {
+  const history = useHistory();
+
   const handleSubmit = () => {
     console.log('handleSubmit()');
   };
-  /*
-  <button onClick={goBack}>Back</button>
-      <button onClick={goToNext}>Next</button>
-  */
+
+  const goToNext = () => {
+    history.push('form2');
+  };
+
+  const goBack = () => {
+    history.push('/');
+  };
 
   return (
     <div>
@@ -16,6 +23,8 @@ function FormPageTwo() {
         <NumericInput min={0} max={5} />
         <button>Submit</button>
       </form>
+      <button onClick={goBack}>Back</button>
+      <button onClick={goToNext}>Next</button>
     </div>
   );
 }

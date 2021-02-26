@@ -21,7 +21,7 @@ function FormPageOne() {
 
   const goToNext = () => {
     console.log('goToNext()');
-    history.push('/home');
+    history.push('/form2');
   };
 
   return (
@@ -31,7 +31,7 @@ function FormPageOne() {
         <NumericInput min={0} max={5} />
         <button>Submit</button>
       </form>
-      <button onClick={goToNext}>NEXT</button>
+      <button onClick={goToNext}>Next</button>
     </div>
   );
 }
