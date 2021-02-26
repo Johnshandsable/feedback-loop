@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 
 import FormPageOne from '../FormPageOne/FormPageOne';
+import FormPageTwo from '../FormPageTwo/FormPageTwo';
 
 import Home from '../Home/Home';
 
@@ -30,7 +31,7 @@ function App() {
             </li>
           </ul>
         </nav>
-        <Route path="/home" exact>
+        <Route path="/home">
           <Home />
         </Route>
       </Router>
