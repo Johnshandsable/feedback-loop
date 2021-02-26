@@ -1,4 +1,10 @@
+import { Link } from 'react-router-dom';
+
 function FormPageFour() {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -6,8 +12,8 @@ function FormPageFour() {
         <input type="text" />
         <button>Submit</button>
       </form>
-      <button onClick={goBack}>Back</button>
-      <button onClick={goToNext}>Next</button>
+      <Link to="form3">Back</Link>
+      <Link to="/form5">Next</Link>
     </div>
   );
 }

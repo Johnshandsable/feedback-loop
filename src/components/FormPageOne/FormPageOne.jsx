@@ -1,9 +1,14 @@
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import NumericInput from 'react-numeric-input';
 
 function FormPageOne() {
+  const dispatch = useDispatch();
   const history = useHistory();
 
+  // Represents a number 1 to 5 for the question of how well is someone feeling
+  const [feelingNum, setFeelingNum] = useState(0);
   /*
     TODO - 
 
@@ -16,11 +21,15 @@ function FormPageOne() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log('handleSubmit()');
-  };
 
-  const goToNext = () => {
-    console.log('goToNext()');
+    dispatch({
+      type: 'SET_FEELING',
+      payload: {
+        feeling: feelingNum,
+        page: 1,
+      },
+    });
+    // Go ahead to page two of form, if the submit went ok!
     history.push('/form2');
   };
 
@@ -28,10 +37,14 @@ function FormPageOne() {
     <div>
       <form onSubmit={handleSubmit}>
         <h3>How well are you feeling today?</h3>
-        <NumericInput min={0} max={5} />
+        <NumericInput
+          min={0}
+          max={5}
+          onChange={(event) => setFeelingNum(event)}
+        />
         <button>Submit</button>
       </form>
-      <button onClick={goToNext}>Next</button>
+      <Link to="/form2">Next</Link>
     </div>
   );
 }

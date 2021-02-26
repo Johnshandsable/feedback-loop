@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import FormPageOne from '../FormPageOne/FormPageOne';
 import FormPageTwo from '../FormPageTwo/FormPageTwo';
 import FormPageThree from '../FormPageThree/FormPageThree';
-
-import Home from '../Home/Home';
+import FormPageFour from '../FormPageFour/FormPageFour';
+import FormPageFive from '../FormPageFive/FormPageFive';
 
 function App() {
   return (
@@ -20,9 +20,16 @@ function App() {
 
       <Router>
         <Switch>
+          {/* Feedback Form - Page One */}
           <Route path="/" component={FormPageOne} exact />
+          {/* Feedback Form - Page Two */}
           <Route path="/form2" component={FormPageTwo} />
+          {/* Feedback Form - Page Three */}
           <Route path="/form3" component={FormPageThree} />
+          {/* Feedback Form - Page Four */}
+          <Route path="/form4" component={FormPageFour} />
+          {/* Feedback Form - Page Five */}
+          <Route path="/form5" component={FormPageFive} />
         </Switch>
       </Router>
     </div>

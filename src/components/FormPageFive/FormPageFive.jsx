@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 function FormPageFive() {
   return (
     <div>
       <h3>Thank you!</h3>
-      <button></button>
+      <Link to="/">Leave more feedback!</Link>
     </div>
   );
 }

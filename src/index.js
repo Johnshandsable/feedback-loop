@@ -10,6 +10,9 @@ import { Provider } from 'react-redux';
 import { logger } from 'redux-logger';
 
 const infoReducer = (state = {}, action) => {
+  if (action.type === 'SET_FEELING') {
+    return action.payload;
+  }
   return state;
 };
 
