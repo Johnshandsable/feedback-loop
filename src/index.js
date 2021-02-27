@@ -10,6 +10,10 @@ import { Provider } from 'react-redux';
 import { logger } from 'redux-logger';
 
 /* REDUCERS */
+/*
+  TODO - 
+    Use one reducer and store each key value pair in 
+*/
 const feelingReducer = (state = {}, action) => {
   if (action.type === 'SET_FEELING') {
     return action.payload;
