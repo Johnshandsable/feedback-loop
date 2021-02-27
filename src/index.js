@@ -14,40 +14,19 @@ import { logger } from 'redux-logger';
   TODO - 
     Use one reducer and store each key value pair in 
 */
-const feelingReducer = (state = {}, action) => {
-  if (action.type === 'SET_FEELING') {
-    return action.payload;
-  }
-  return state;
-};
-
-const understandingReducer = (state = {}, action) => {
-  if (action.type === 'SET_UNDERSTANDING') {
-    return action.payload;
-  }
-  return state;
-};
-
-const supportReducer = (state = {}, action) => {
-  if (action.type === 'SET_SUPPORT') {
-    return action.payload;
-  }
-  return state;
-};
-
-const commentsReducer = (state = '', action) => {
-  if (action.type === 'SET_COMMENTS') {
-    return action.payload;
+const feedbackReducer = (state = {}, action) => {
+  if (action.type === 'SET_FEEDBACK') {
+    return {
+      ...state,
+      [action.payload.property]: action.payload.value,
+    };
   }
   return state;
 };
 
 const storeInstance = createStore(
   combineReducers({
-    feelingReducer,
-    understandingReducer,
-    supportReducer,
-    commentsReducer,
+    feedbackReducer,
   }),
   applyMiddleware(logger)
 );
@@ -58,4 +37,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
 registerServiceWorker();

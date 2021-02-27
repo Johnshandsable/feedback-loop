@@ -12,10 +12,9 @@ function FormPageThree() {
     evt.preventDefault();
 
     dispatch({
-      type: 'SET_SUPPORT',
+      type: 'SET_FEEDBACK',
       payload: {
         support: supportNum,
-        page: 3,
       },
     });
     history.push('/form4');

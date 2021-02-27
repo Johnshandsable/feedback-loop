@@ -13,10 +13,9 @@ function FormPageFour() {
     evt.preventDefault();
 
     dispatch({
-      type: 'SET_COMMENTS',
+      type: 'SET_FEEDBACK',
       payload: {
-        comments,
-        page: 4,
+        comments: comments,
       },
     });
     // Go ahead to page four of form if the submit went ok!
