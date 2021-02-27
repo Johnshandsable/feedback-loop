@@ -2,6 +2,8 @@ import NumericInput from 'react-numeric-input';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Typography } from '@material-ui/core';
+import SubmitButton from '../Buttons/SubmitButton';
 
 function FormPageThree() {
   const [supportNum, setSupportNum] = useState(0);
@@ -14,7 +16,8 @@ function FormPageThree() {
     dispatch({
       type: 'SET_FEEDBACK',
       payload: {
-        support: supportNum,
+        property: 'support',
+        value: supportNum,
       },
     });
     history.push('/form4');
@@ -23,13 +26,13 @@ function FormPageThree() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h3>How well are you being supported?</h3>
+        <Typography variant="h6">How well are you being supported?</Typography>
         <NumericInput
           min={0}
           max={5}
           onChange={(event) => setSupportNum(event)}
         />
-        <button>Submit</button>
+        <SubmitButton />
       </form>
       <Link to="/form2">Back</Link>
       <Link to="/form4">Next</Link>

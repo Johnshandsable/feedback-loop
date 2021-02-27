@@ -1,6 +1,8 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Typography, TextField } from '@material-ui/core';
+import SubmitButton from '../Buttons/SubmitButton';
 
 function FormPageFour() {
   const dispatch = useDispatch();
@@ -15,7 +17,8 @@ function FormPageFour() {
     dispatch({
       type: 'SET_FEEDBACK',
       payload: {
-        comments: comments,
+        property: 'comments',
+        value: comments,
       },
     });
     // Go ahead to page four of form if the submit went ok!
@@ -23,18 +26,25 @@ function FormPageFour() {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
-        <h3>Any comments you want to leave?</h3>
-        <input
-          type="text"
-          onChange={(event) => setComments(event.target.value)}
+        <Typography variant="h6">Any comments you want to leave?</Typography>
+        <TextField
+          id="filled-multiline-flexible"
+          label="Comments"
+          onChange={(e) => {
+            setComments(e.target.value);
+          }}
+          multiline
+          rowsMax="6"
+          margin="normal"
+          variant="filled"
         />
-        <button>Submit</button>
+        <SubmitButton />
       </form>
       <Link to="form3">Back</Link>
       <Link to="/form5">Next</Link>
-    </div>
+    </>
   );
 }
 

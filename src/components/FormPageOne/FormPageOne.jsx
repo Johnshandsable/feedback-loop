@@ -2,7 +2,8 @@ import { useHistory, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import NumericInput from 'react-numeric-input';
-import { Button, Typography, Input } from '@material-ui/core';
+import { Typography, Input } from '@material-ui/core';
+import SubmitButton from '../Buttons/SubmitButton';
 
 function FormPageOne() {
   const dispatch = useDispatch();
@@ -17,7 +18,8 @@ function FormPageOne() {
     dispatch({
       type: 'SET_FEEDBACK',
       payload: {
-        feeling: feelingNum,
+        property: 'feeling',
+        value: feelingNum,
       },
     });
     // Go ahead to page two of form, if the submit went ok!
@@ -30,7 +32,9 @@ function FormPageOne() {
         <Typography variant="h6">How well are you feeling today?</Typography>
         <Input
           type="number"
-          onChange={(event) => setFeelingNum(event)}
+          onChange={(event) => {
+            setFeelingNum(event.target.value);
+          }}
           required={true}
           placeholder="1 to 5"
         />
@@ -39,9 +43,7 @@ function FormPageOne() {
           max={5}
           onChange={(event) => setFeelingNum(event)}
         /> */}
-        <Button color="primary" type="submit">
-          Submit
-        </Button>
+        <SubmitButton />
       </form>
       <Link to="/form2">Next</Link>
     </div>
