@@ -2,6 +2,7 @@ import NumericInput from 'react-numeric-input';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Button, Typography } from '@material-ui/core';
 
 function FormPageTwo() {
   const history = useHistory();
@@ -14,10 +15,9 @@ function FormPageTwo() {
     evt.preventDefault();
 
     dispatch({
-      type: 'SET_UNDERSTANDING',
+      type: 'SET_FEEDBACK',
       payload: {
         understanding: understandingNum,
-        page: 2,
       },
     });
     // Go ahead to page three of form if the submit went ok!
@@ -27,13 +27,17 @@ function FormPageTwo() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h3>How well are you understanding the content?</h3>
+        <Typography variant="h6">
+          How well are you understanding the content?
+        </Typography>
         <NumericInput
           min={0}
           max={5}
           onChange={(event) => setUnderstandingNum(event)}
         />
-        <button>Submit</button>
+        <Button color="primary" type="submit">
+          Submit
+        </Button>
       </form>
       <Link to="/">Back</Link>
       <Link to="/form3">Next</Link>
