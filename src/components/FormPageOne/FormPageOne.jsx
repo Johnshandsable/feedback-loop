@@ -9,15 +9,6 @@ function FormPageOne() {
 
   // Represents a number 1 to 5 for the question of how well is someone feeling
   const [feelingNum, setFeelingNum] = useState(0);
-  /*
-    TODO - 
-
-    Setup Redux on index.js
-    Keep track of state as you move through pages 
-    after all the data is tracked, 
-    grab using the useSelector() and submit via a post 
-    request to the database. 
-  */
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
