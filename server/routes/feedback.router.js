@@ -38,4 +38,20 @@ router.post('/', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+  // Delete a feedback item based on the id
+  const sqlText = 'DELETE FROM "feedback" WHERE "id"=$1';
+  const feedbackToDeleteId = req.params.id;
+
+  pool
+    .query(sqlText, [feedbackToDeleteId])
+    .then((result) => {
+      res.sendStatus(200); // Everything went ok!
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500); // Something went wrong
+    });
+});
+
 module.exports = router;

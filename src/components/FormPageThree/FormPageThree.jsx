@@ -7,7 +7,7 @@ import SubmitButton from '../Buttons/SubmitButton';
 import swal from 'sweetalert';
 
 function FormPageThree() {
-  const [supportNum, setSupportNum] = useState(0);
+  const [supportNum, setSupportNum] = useState(1);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -46,11 +46,11 @@ function FormPageThree() {
           }}
           required={true}
           placeholder="1 to 5"
+          value={supportNum}
         />
         <SubmitButton />
       </form>
       <Link to="/form2">Back</Link>
-      <Link to="/form4">Next</Link>
     </div>
   );
 }
