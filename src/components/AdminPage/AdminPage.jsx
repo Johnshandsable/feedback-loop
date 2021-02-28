@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 // all separately?
 import {
   Button,
-  makeStyles,
   Paper,
   Table,
   TableBody,
@@ -62,50 +61,6 @@ function AdminPage() {
       });
   };
 
-  function createData(
-    index,
-    id,
-    feeling,
-    understanding,
-    support,
-    comments,
-    flagged,
-    date
-  ) {
-    return {
-      index,
-      id,
-      feeling,
-      understanding,
-      support,
-      comments,
-      flagged,
-      date,
-    };
-  }
-
-  function createRows() {
-    let feedbackRows = [];
-    console.table('feedback', feedbackList);
-    for (const row of feedbackList) {
-      feedbackRows.push(
-        createData(
-          row.index,
-          row.id,
-          row.feeling,
-          row.understanding,
-          row.support,
-          row.comments,
-          row.flagged,
-          row.date
-        )
-      );
-    }
-    return feedbackRows;
-  }
-
-  const rows = createRows();
-
   return (
     <>
       <Typography variant="h5">Admin Page</Typography>
@@ -124,7 +79,7 @@ function AdminPage() {
           </TableHead>
           {/* Table Body  */}
           <TableBody>
-            {rows.map((row) => (
+            {feedbackList.map((row) => (
               <TableRow key={row.id}>
                 <TableCell align="right" component="th" scope="row">
                   {row.id}
