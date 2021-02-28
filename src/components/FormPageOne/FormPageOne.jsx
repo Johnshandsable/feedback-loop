@@ -9,9 +9,6 @@ function FormPageOne() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // Represents a number 1 to 5 for the question of how well is someone feeling
-  const [feelingNum, setFeelingNum] = useState(0);
-
   const getFeelingNumRedux = useSelector((store) => {
     /*
       When the user clicks the 'edit' button on review, the user will be sent back 
@@ -21,9 +18,8 @@ function FormPageOne() {
     return store.feedbackReducer;
   });
 
-  if (getFeelingNumRedux.feeling !== undefined) {
-    setFeelingNum(getFeelingNumRedux.feeling);
-  }
+  // Represents a number 1 to 5 for the question of how well is someone feeling
+  const [feelingNum, setFeelingNum] = useState(1);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

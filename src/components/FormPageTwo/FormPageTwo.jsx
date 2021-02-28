@@ -11,7 +11,7 @@ function FormPageTwo() {
   const dispatch = useDispatch();
 
   // Represents a number 1 to 5 for the question of how well someone is understanding the content
-  const [understandingNum, setUnderstandingNum] = useState(0);
+  const [understandingNum, setUnderstandingNum] = useState(1);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -52,11 +52,11 @@ function FormPageTwo() {
           }}
           required={true}
           placeholder="1 to 5"
+          value={understandingNum}
         />
         <SubmitButton />
       </form>
       <Link to="/">Back</Link>
-      <Link to="/form3">Next</Link>
     </>
   );
 }

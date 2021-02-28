@@ -4,7 +4,14 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 // Material UI
-import { Typography, AppBar, Container, Paper, Grid } from '@material-ui/core';
+import {
+  Typography,
+  AppBar,
+  Container,
+  Paper,
+  Grid,
+  GridItem,
+} from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { cyan, teal } from '@material-ui/core/colors';
 
@@ -64,8 +71,9 @@ function App() {
         </AppBar>
       </Grid>
 
-      <Grid container direction="column" justify="center" alignItems="center">
-        <div className="appForm">
+      {/* <Grid container direction="column" justify="center" alignItems="center"> */}
+      <div className="appForm">
+        <Grid item xs={12}>
           <Paper>
             <Router>
               <Switch>
@@ -84,8 +92,9 @@ function App() {
               </Switch>
             </Router>
           </Paper>
-        </div>
-      </Grid>
+        </Grid>
+      </div>
+      {/* </Grid> */}
     </ThemeProvider>
   );
 }
