@@ -9,6 +9,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { cyan, teal } from '@material-ui/core/colors';
 
 // Custom Components
+import AdminPage from '../AdminPage/AdminPage';
 import FormPageOne from '../FormPageOne/FormPageOne';
 import FormPageTwo from '../FormPageTwo/FormPageTwo';
 import FormPageThree from '../FormPageThree/FormPageThree';
@@ -68,6 +69,8 @@ function App() {
           <Paper>
             <Router>
               <Switch>
+                {/* Admin Page */}
+                <Route path="/admin" component={AdminPage} exact />
                 {/* Feedback Form - Page One */}
                 <Route path="/" component={FormPageOne} exact />
                 {/* Feedback Form - Page Two */}

@@ -2,8 +2,9 @@ import NumericInput from 'react-numeric-input';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Typography } from '@material-ui/core';
+import { Input, Typography } from '@material-ui/core';
 import SubmitButton from '../Buttons/SubmitButton';
+import swal from 'sweetalert';
 
 function FormPageTwo() {
   const history = useHistory();
@@ -14,6 +15,18 @@ function FormPageTwo() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+
+    if (understandingNum > 5 || understandingNum < 1) {
+      swal({
+        title: 'Check your input',
+        text: 'Make sure to choose a number between one and five',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      });
+      // return early to ensure the user puts in a number 1 to 5.
+      return;
+    }
 
     dispatch({
       type: 'SET_FEEDBACK',
@@ -27,21 +40,24 @@ function FormPageTwo() {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <Typography variant="h6">
           How well are you understanding the content?
         </Typography>
-        <NumericInput
-          min={0}
-          max={5}
-          onChange={(event) => setUnderstandingNum(event)}
+        <Input
+          type="number"
+          onChange={(event) => {
+            setUnderstandingNum(event.target.value);
+          }}
+          required={true}
+          placeholder="1 to 5"
         />
         <SubmitButton />
       </form>
       <Link to="/">Back</Link>
       <Link to="/form3">Next</Link>
-    </div>
+    </>
   );
 }
 

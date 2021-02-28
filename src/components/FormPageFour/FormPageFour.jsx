@@ -14,6 +14,10 @@ function FormPageFour() {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
+    /*
+      We do not need to validate before submitting because comments can be 
+      left blank. 
+    */
     dispatch({
       type: 'SET_FEEDBACK',
       payload: {
@@ -37,7 +41,7 @@ function FormPageFour() {
           }}
           multiline
           rowsMax="6"
-          margin="normal"
+          margin="dense"
           variant="filled"
         />
         <SubmitButton />
