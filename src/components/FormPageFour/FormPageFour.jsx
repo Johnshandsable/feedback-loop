@@ -13,7 +13,6 @@ function FormPageFour() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
     /*
       We do not need to validate before submitting because comments can be 
       left blank. 

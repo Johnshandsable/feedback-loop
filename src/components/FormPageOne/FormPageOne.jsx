@@ -11,6 +11,8 @@ function FormPageOne() {
 
   const getFeelingNumRedux = useSelector((store) => {
     /*
+      TODO - Fix updating the values within the inputs dynamically. 
+
       When the user clicks the 'edit' button on review, the user will be sent back 
       to the corresponding page, and we need to grab the current state from redux and 
       set it to the corresponding input. 
@@ -26,7 +28,7 @@ function FormPageOne() {
     /* 
       The only check we need to make is if the number is between 1 and 5. The input
       will check if feelingNum is actually a number, but we need an extra if statement 
-      to validate for number's range. 
+      to validate for the number's range. 
     */
     if (feelingNum > 5 || feelingNum < 1) {
       swal({
@@ -51,7 +53,7 @@ function FormPageOne() {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <Typography variant="h6">How well are you feeling today?</Typography>
         <Input
@@ -65,7 +67,7 @@ function FormPageOne() {
         />
         <SubmitButton />
       </form>
-    </div>
+    </>
   );
 }
 

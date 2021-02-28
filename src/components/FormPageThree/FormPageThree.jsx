@@ -36,7 +36,7 @@ function FormPageThree() {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <Typography variant="h6">How well are you being supported?</Typography>
         <Input
@@ -51,7 +51,7 @@ function FormPageThree() {
         <SubmitButton />
       </form>
       <Link to="/form2">Back</Link>
-    </div>
+    </>
   );
 }
 
