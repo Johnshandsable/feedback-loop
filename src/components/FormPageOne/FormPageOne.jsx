@@ -8,6 +8,7 @@ import swal from 'sweetalert';
 function FormPageOne() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [feelingNum, setFeelingNum] = useState(1);
 
   const getFeelingNumRedux = useSelector((store) => {
     /*
@@ -20,9 +21,11 @@ function FormPageOne() {
     return store.feedbackReducer;
   });
 
-  // Represents a number 1 to 5 for the question of how well is someone feeling
-  const [feelingNum, setFeelingNum] = useState(1);
+  useEffect(() => {
+    setFeelingNum(getFeelingNumRedux.feeling);
+  }, []);
 
+  // Represents a number 1 to 5 for the question of how well is someone feeling
   const handleSubmit = (evt) => {
     evt.preventDefault();
     /* 
@@ -56,6 +59,13 @@ function FormPageOne() {
     <>
       <form onSubmit={handleSubmit}>
         <Typography variant="h6">How well are you feeling today?</Typography>
+        <Typography variant="subtitle1">1 - Flustered</Typography>
+        <Typography variant="subtitle1">2 - Sad</Typography>
+        <Typography variant="subtitle1">3 - Okay</Typography>
+        <Typography variant="subtitle1">4 - Good</Typography>
+        <Typography variant="subtitle1" paragraph={true}>
+          5 - Amazing
+        </Typography>
         <Input
           type="number"
           onChange={(event) => {
